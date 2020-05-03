@@ -10,8 +10,3 @@
 
   # Directory with the serverless Lambda functions to deploy to AWS.
   functions = "functions/"
-
-# Production context: all deploys from the Production branch set in your site's
-# deploy contexts will inherit these settings.
-[context.production]
-  EXAMPLE_TOKEN = "not so secret"
