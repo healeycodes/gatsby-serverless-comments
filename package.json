@@ -15,10 +15,12 @@
   },
   "dependencies": {
     "gatsby": "^2.21.0",
+    "node-fetch": "^2.6.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "github-api": "^3.3.0",
     "prettier": "2.0.5"
   },
   "repository": {
