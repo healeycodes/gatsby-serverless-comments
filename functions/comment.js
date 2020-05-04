@@ -20,7 +20,7 @@ exports.handler = async function (event, context, callback) {
     }).then(res => res.text())
   )
 
-  let comments = Buffer.from(existingFile.content, "base64").toString("utf-8")
+  let comments = JSON.parse(Buffer.from(existingFile.content, "base64").toString("utf-8"))
 
   const newComment = JSON.parse(event.body)
   comments.push({
