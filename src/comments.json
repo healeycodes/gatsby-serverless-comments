@@ -1,14 +1,1 @@
-[
-  {
-    "author": "Andrew",
-    "email": "andrew@example.org",
-    "message": "Hello, World!",
-    "date": 1588521002906
-  },
-  {
-    "author": "Alice",
-    "email": "alice@example.org",
-    "message": "Sample message.",
-    "date": 1588521002907
-  }
-]
+[{"author":"Andrew","email":"andrew@example.org","message":"Hello, World!","date":1588521002906},{"author":"Alice","email":"alice@example.org","message":"Sample message.","date":1588521002907},{"author":"Andrew","email":"an@example.org","message":"Testing a function","date":1588618960021}]
