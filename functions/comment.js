@@ -30,7 +30,7 @@ exports.handler = async function (event, context, callback) {
     date: Date.now(),
   })
 
-  await fetch(api, {
+  const res = await fetch(api, {
     method: "PUT",
     headers: {
       Authorization:
@@ -38,16 +38,13 @@ exports.handler = async function (event, context, callback) {
     },
     body: JSON.stringify({
       message: "New comment on " + new Date().toDateString(),
-      committer: {
-        name: "Netlify Serverless Function",
-      },
       content: Buffer(comments).toString("base64"),
       sha: existingFile.sha,
     }),
-  })
+  }).then(res => res.text())
 
   callback(null, {
     statusCode: 200,
-    body: text,
+    body: res,
   })
 }
