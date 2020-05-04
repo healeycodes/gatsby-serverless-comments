@@ -38,7 +38,7 @@ exports.handler = async function (event, context, callback) {
     },
     body: JSON.stringify({
       message: "New comment on " + new Date().toDateString(),
-      content: Buffer(comments).toString("base64"),
+      content: Buffer(JSON.stringify(comments)).toString("base64"),
       sha: existingFile.sha,
     }),
   }).then(res => res.text())
