@@ -30,6 +30,12 @@ class CommentForm extends React.Component {
       }),
     }).then(res => res.status)
 
+    this.setState({
+      author: "",
+      email: "",
+      message: "",
+    })
+
     console.log(status)
   }
 
