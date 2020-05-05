@@ -1,15 +1,101 @@
 import React from "react"
 import comments from "../comments.json"
 
-export default function () {
-  const formatted = comments.map((comment, i) => (
-    <li key={i}>
-      author: {comment.author}
-      <br />
-      email: {comment.email}
-      <br />
-      message: {comment.message}
-    </li>
-  ))
-  return <ul>{formatted}</ul>
+class CommentForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: "",
+      email: "",
+      message: "",
+    }
+
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleInputChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    })
+  }
+
+  async handleSubmit() {
+    const status = await fetch("/.netlify/functions/comment", {
+      method: "PUT",
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        message: this.state.message,
+      }),
+    }).then(res => res.status)
+    
+    console.log(status)
+  }
+
+  render() {
+    const formattedComments = comments.map((comment, i) => (
+      <li key={i} style={{ listStyle: "none", paddingBottom: "25px" }}>
+        <div>
+          <b>Author:</b> {comment.author}
+        </div>
+        <div>
+          <b>Message:</b> {comment.message}
+        </div>
+        <div>
+          <b>Email:</b> {comment.email}
+        </div>
+      </li>
+    ))
+
+    return (
+      <main>
+        {formattedComments}
+        <div style={{ paddingTop: "50px" }} />
+        <form>
+          <div>
+            <label>
+              Name
+              <input
+                name="name"
+                placeholder="Alice"
+                value={this.state.name}
+                onChange={this.handleInputChange}
+              />
+            </label>
+          </div>
+
+          <div>
+            <label>
+              Email
+              <input
+                name="email"
+                placeholder="alice@example.org"
+                value={this.state.email}
+                onChange={this.handleInputChange}
+              />
+            </label>
+          </div>
+
+          <div>
+            <label>
+              Message
+              <input
+                name="message"
+                placeholder="A nice message"
+                value={this.state.message}
+                onChange={this.handleInputChange}
+              />
+            </label>
+          </div>
+
+          <button type="button" onClick={this.handleSubmit}>
+            Submit
+          </button>
+        </form>
+      </main>
+    )
+  }
 }
+
+export default CommentForm
