@@ -66,7 +66,7 @@ class CommentForm extends React.Component {
             <input
               name="author"
               placeholder="Alice"
-              value={this.state.name}
+              value={this.state.author}
               onChange={this.handleInputChange}
             />
           </div>
