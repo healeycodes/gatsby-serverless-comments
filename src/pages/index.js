@@ -5,7 +5,7 @@ class CommentForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: "",
+      author: "",
       email: "",
       message: "",
     }
@@ -24,12 +24,12 @@ class CommentForm extends React.Component {
     const status = await fetch("/.netlify/functions/comment", {
       method: "PUT",
       body: JSON.stringify({
-        name: this.state.name,
+        name: this.state.author,
         email: this.state.email,
         message: this.state.message,
       }),
     }).then(res => res.status)
-    
+
     console.log(status)
   }
 
@@ -54,39 +54,39 @@ class CommentForm extends React.Component {
         <div style={{ paddingTop: "50px" }} />
         <form>
           <div>
-            <label>
-              Name
-              <input
-                name="name"
-                placeholder="Alice"
-                value={this.state.name}
-                onChange={this.handleInputChange}
-              />
+            <label htmlFor="name" style={{ display: "block" }}>
+              Name:
             </label>
+            <input
+              name="author"
+              placeholder="Alice"
+              value={this.state.name}
+              onChange={this.handleInputChange}
+            />
           </div>
 
           <div>
-            <label>
-              Email
-              <input
-                name="email"
-                placeholder="alice@example.org"
-                value={this.state.email}
-                onChange={this.handleInputChange}
-              />
+            <label htmlFor="email" style={{ display: "block" }}>
+              Email:
             </label>
+            <input
+              name="email"
+              placeholder="alice@example.org"
+              value={this.state.email}
+              onChange={this.handleInputChange}
+            />
           </div>
 
           <div>
-            <label>
-              Message
-              <input
-                name="message"
-                placeholder="A nice message"
-                value={this.state.message}
-                onChange={this.handleInputChange}
-              />
+            <label htmlFor="message" style={{ display: "block" }}>
+              Message:
             </label>
+            <input
+              name="message"
+              placeholder="A nice message"
+              value={this.state.message}
+              onChange={this.handleInputChange}
+            />
           </div>
 
           <button type="button" onClick={this.handleSubmit}>
