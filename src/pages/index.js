@@ -24,7 +24,7 @@ class CommentForm extends React.Component {
     const status = await fetch("/.netlify/functions/comment", {
       method: "PUT",
       body: JSON.stringify({
-        name: this.state.author,
+        author: this.state.author,
         email: this.state.email,
         message: this.state.message,
       }),
