@@ -16,9 +16,11 @@ exports.handler = async function (event, context, callback) {
   const existingFile = JSON.parse(
     await fetch(api, {
       headers: {
-        // Pass some kind of authorization, I'm using a personal access token
+        // Pass some kind of authorization
+        // I'm using a personal access token
         Authorization:
-          "Basic " + Buffer.from(user + ":" + auth).toString("base64"),
+          "Basic " + Buffer.from(user + ":" + auth)
+            .toString("base64"),
       },
     }).then(res => res.text())
   )
@@ -26,11 +28,12 @@ exports.handler = async function (event, context, callback) {
   // The file's content is stored in base64 encoding
   // Decode that into utf-8 and then parse into an object
   let comments = JSON.parse(
-    Buffer.from(existingFile.content, "base64").toString("utf-8")
+    Buffer.from(existingFile.content, "base64")
+      .toString("utf-8")
   )
 
   // This is the user submitted comment
-  // Perhaps we would do some validation here (e.g. for security)
+  // Perhaps we would do some validation here
   const newComment = JSON.parse(event.body)
 
   // Update the comments
@@ -46,15 +49,18 @@ exports.handler = async function (event, context, callback) {
     method: "PUT",
     headers: {
       Authorization:
-        "Basic " + Buffer.from(user + ":" + auth).toString("base64"),
+        "Basic " + Buffer.from(user + ":" + auth)
+          .toString("base64"),
     },
     body: JSON.stringify({
-      message: "New comment on " + new Date().toDateString(),
+      message: "New comment on " + new Date()
+        .toDateString(),
 
       // Turn that object back into a string and encoded it
-      content: Buffer(JSON.stringify(comments)).toString("base64"),
+      content: Buffer(JSON.stringify(comments))
+        .toString("base64"),
 
-      // Required: the blob SHA of the file being changed is required
+      // Required: the blob SHA of the existing file
       sha: existingFile.sha,
     }),
   }).then(res => res.text())
