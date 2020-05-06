@@ -1,7 +1,7 @@
 {
   "name": "gatsby-serverless-comments",
   "private": true,
-  "description": "A Gatsby starter with serverless GitHub comments",
+  "description": "A Gatsby starter with serverless GitHub comments via Netlify",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
