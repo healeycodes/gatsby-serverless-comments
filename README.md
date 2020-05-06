@@ -1,6 +1,6 @@
 # gatsby-serverless-comments
 
-This is a proof-of-concept for using Netlify serverless functions to let users add comments to the source code of a static website.
+This is a proof-of-concept for using Netlify serverless functions to let users add comments to a static website.
 
 1. 👩 User enters a comment and clicks submit.
 2. ⚙️ A serverless function receives the data.
