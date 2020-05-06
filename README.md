@@ -5,7 +5,7 @@ This is a proof-of-concept for using Netlify serverless functions to let users a
 1. 👩 User enters a comment and clicks submit.
 2. ⚙️ A serverless function receives the data.
 3. 🔧 The new comment is appended to `comments.json` via GitHub's Contents API.
-4. 🚧 A new commit triggers a Netlify CI build.
+4. 🚧 A new commit triggers a Netlify build.
 5. ✔️ The new version of the website is deployed!
 
 The new comment is visible ~30 seconds ⏰ after the first click.
