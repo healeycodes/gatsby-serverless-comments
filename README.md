@@ -1,6 +1,6 @@
 # gatsby-serverless-comments
 
-This is a proof-of-concept for using Netlify serverless functions to let users add comments to a static website.
+Use Netlify serverless functions to let users add comments to a static website.
 
 1. 👩 User enters a comment and clicks submit.
 2. ⚙️ A serverless function receives the data.
@@ -11,6 +11,10 @@ This is a proof-of-concept for using Netlify serverless functions to let users a
 The new comment is visible ~30 seconds ⏰ after the first click.
 
 <br>
+
+See `/src/pages/index.js` for the user visible page.
+
+See `/functions/comment.js` for the serverless function.
 
 ## Why?
 
