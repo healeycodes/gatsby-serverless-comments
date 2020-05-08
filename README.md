@@ -1,5 +1,9 @@
 # gatsby-serverless-comments
 
+> My blog post: [Adding Comments to Gatsby with Netlify Serverless Functions + GitHub](https://healeycodes.com/adding-comments-to-gatsby-with-netlify-and-github/)
+
+<br>
+
 Use Netlify serverless functions to let users add comments to a static website.
 
 1. 👩 User enters a comment and clicks submit.
