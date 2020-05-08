@@ -36,6 +36,6 @@ Set the following environmental variables on Netlify:
 
 Set up the site on Netlify to continuously deploy on commits (this the default).
 
-Visit the deploy preview, or production version, and submit a comment from the root path (`/`). There is a example form there that makes a `PUT` request.
+Visit the deploy preview, or production version, and submit a comment from the root path (`/`). There is a example form that submits a `PUT` request.
 
 You should see a `204` response in the browser console. Else, check the Netlify functions logs for errors.
