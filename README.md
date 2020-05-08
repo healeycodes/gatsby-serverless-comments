@@ -34,4 +34,8 @@ Set the following environmental variables on Netlify:
 
 <br>
 
-Deploy!
+Set up the site on Netlify to continuously deploy on commits (this the default).
+
+Visit the deploy preview, or production version, and submit a comment from the root path (`/`).
+
+You should see a `204` response in the browser console. Else, check the Netlify functions logs for errors.
