@@ -10,7 +10,7 @@ Use Netlify serverless functions to let users add comments to a static website.
 2. ⚙️ A serverless function receives the data and hits GitHub's API.
 3. 🔧 It reads the existing `comments.json` , appends the new comment, and saves.
 4. 🚧 A new commit triggers a Netlify build.
-5. ✔️ The new version of the website is deployed!
+5. ✅ The new version of the website is deployed!
 
 The new comment is visible ~30 seconds ⏰ after the first click.
 
